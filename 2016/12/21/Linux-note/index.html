@@ -101,7 +101,7 @@
 root 为当前用户
 localhost 为当前主机名
 ~ 为当前所在目录
-#/$ root用户为#，普通用户为$
+#和$：root用户为#，普通用户为$
 
 常用目录的作用
 / 根目录
@@ -120,7 +120,7 @@ localhost 为当前主机名
 root 为当前用户
 localhost 为当前主机名
 ~ 为当前所在目录
-#/$ root用户为#，普通用户为$
+#和$：root用户为#，普通用户为$
 
 常用目录的作用
 / 根目录
@@ -130,7 +130,7 @@ localhost 为当前主机名
 /etc 配置文件保存目录
 /home 普通用户的家目录
 /lib 系统库保存">
-<meta property="og:updated_time" content="2016-12-21T13:11:46.000Z">
+<meta property="og:updated_time" content="2016-12-21T13:31:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux笔记">
 <meta name="twitter:description" content="linux界面1[root@localhost ~] #
@@ -138,7 +138,7 @@ localhost 为当前主机名
 root 为当前用户
 localhost 为当前主机名
 ~ 为当前所在目录
-#/$ root用户为#，普通用户为$
+#和$：root用户为#，普通用户为$
 
 常用目录的作用
 / 根目录
@@ -392,7 +392,7 @@ localhost 为当前主机名
 <li>root 为当前用户</li>
 <li>localhost 为当前主机名</li>
 <li>~ 为当前所在目录</li>
-<li>#/$ root用户为#，普通用户为$</li>
+<li>#和$：root用户为#，普通用户为$</li>
 </ul>
 <h2 id="常用目录的作用"><a href="#常用目录的作用" class="headerlink" title="常用目录的作用"></a>常用目录的作用</h2><ul>
 <li>/ 根目录</li>
@@ -453,10 +453,10 @@ localhost 为当前主机名
 <li>/var/lib/mlocate 为locate命令搜索的后台数据库</li>
 <li>updatedb 更新数据库命令</li>
 </ul>
-<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">find /root -inname install.log</div><div class="line">#不区分大小写</div><div class="line"></div><div class="line">find /root -user root</div><div class="line">#按照所有者搜索</div><div class="line"></div><div class="line">find /root -nouser</div><div class="line">#查找没有所有者的文件</div><div class="line"></div><div class="line">find /var/log/ -mtime +10</div><div class="line">#查找10天前修改的文件</div><div class="line">//-10  10天内修改的文件</div><div class="line">//10   10天当天修改的文件</div><div class="line">//+10  10天前修改的文件</div><div class="line"></div><div class="line">//atime   文件访问时间</div><div class="line">//ctime   改变文件属性</div><div class="line">//mtime   修改文件内容</div></pre></td></tr></table></figure>
-<h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">grep [选项] 字符串 文件名</div><div class="line">//在文件当是匹配符合条件的字条串</div><div class="line">-i   忽略大小写</div><div class="line">-v   排除指定字符串</div></pre></td></tr></table></figure>
-<h4 id="man"><a href="#man" class="headerlink" title="man"></a>man</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">man -k </div><div class="line">//相当于 apropos 命令</div><div class="line">//例如： apropos passwd</div></pre></td></tr></table></figure>
-<h4 id="shutdown-选项-时间"><a href="#shutdown-选项-时间" class="headerlink" title="shutdown [选项] 时间"></a>shutdown [选项] 时间</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">shutdown -c</div><div class="line">//取消上一个关机命令</div><div class="line"></div><div class="line">shutdown -h </div><div class="line">//关机</div><div class="line"></div><div class="line">shutdown -r</div><div class="line">//重启</div></pre></td></tr></table></figure>
+<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">find /root -inname install.log</div><div class="line"><span class="comment">#不区分大小写</span></div><div class="line"></div><div class="line">find /root -user root</div><div class="line"><span class="comment"># 按照所有者搜索</span></div><div class="line"></div><div class="line">find /root -nouser</div><div class="line"><span class="comment"># 查找没有所有者的文件</span></div><div class="line"></div><div class="line">find /var/<span class="built_in">log</span>/ -mtime +10</div><div class="line"><span class="comment"># 查找10天前修改的文件</span></div><div class="line"><span class="comment"># -10  10天内修改的文件</span></div><div class="line"><span class="comment"># 10   10天当天修改的文件</span></div><div class="line"><span class="comment"># +10  10天前修改的文件</span></div><div class="line"></div><div class="line"><span class="comment"># atime   文件访问时间</span></div><div class="line"><span class="comment"># ctime   改变文件属性</span></div><div class="line"><span class="comment"># mtime   修改文件内容</span></div></pre></td></tr></table></figure>
+<h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">grep [选项] 字符串 文件名</div><div class="line"><span class="comment"># 在文件当是匹配符合条件的字条串</span></div><div class="line">-i   忽略大小写</div><div class="line">-v   排除指定字符串</div></pre></td></tr></table></figure>
+<h4 id="man"><a href="#man" class="headerlink" title="man"></a>man</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">man -k </div><div class="line"><span class="comment"># 相当于 apropos 命令</span></div><div class="line"><span class="comment"># 例如： apropos passwd</span></div></pre></td></tr></table></figure>
+<h4 id="shutdown-选项-时间"><a href="#shutdown-选项-时间" class="headerlink" title="shutdown [选项] 时间"></a>shutdown [选项] 时间</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">shutdown -c</div><div class="line"><span class="comment"># 取消上一个关机命令</span></div><div class="line"></div><div class="line">shutdown -h </div><div class="line"><span class="comment"># 关机</span></div><div class="line"></div><div class="line">shutdown -r</div><div class="line"><span class="comment"># 重启</span></div></pre></td></tr></table></figure>
       
     </div>
 
