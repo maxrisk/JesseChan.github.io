@@ -106,7 +106,7 @@ empty()仅支持变量
 <meta property="og:description" content="最近在部署一个CMS的项目中遇到了一些问题，有些页面可以访问，有些页面状态码则报：500 internal server error。由于在自己电脑上跑的PHP版本是5.6的，并不会报这个错。因为服务器上关闭了调试模式，查了nginx的错误日志，才发现这个报错。
 empty()仅支持变量
 在PHP的官方手册上有提示：在 PHP 5.5 之前，empty() 仅支持变量；任何其他东西将会导致一个解析">
-<meta property="og:updated_time" content="2016-12-01T09:10:40.000Z">
+<meta property="og:updated_time" content="2016-12-28T07:22:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在php5.3下踩的一个坑">
 <meta name="twitter:description" content="最近在部署一个CMS的项目中遇到了一些问题，有些页面可以访问，有些页面状态码则报：500 internal server error。由于在自己电脑上跑的PHP版本是5.6的，并不会报这个错。因为服务器上关闭了调试模式，查了nginx的错误日志，才发现这个报错。
@@ -355,6 +355,7 @@ empty()仅支持变量
 <h2 id="empty-仅支持变量"><a href="#empty-仅支持变量" class="headerlink" title="empty()仅支持变量"></a>empty()仅支持变量</h2><blockquote>
 <p>在PHP的官方手册上有提示：在 PHP 5.5 之前，empty() 仅支持变量；任何其他东西将会导致一个解析错误。换言之，下列代码不会生效： empty(trim($name))。 作为替代，应该使用trim($name) == false.</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="如果没没有使用变量，PHP则会报一个致使错误"><a href="#如果没没有使用变量，PHP则会报一个致使错误" class="headerlink" title="如果没没有使用变量，PHP则会报一个致使错误"></a>如果没没有使用变量，PHP则会报一个致使错误</h4><blockquote>
 <p>PHP message: PHP Fatal error:  Can’t use function return value in write context in …</p>
 </blockquote>

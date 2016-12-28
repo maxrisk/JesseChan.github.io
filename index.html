@@ -350,8 +350,7 @@
 
       
         
-          
-            <p>linux界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~] #</div></pre></td></tr></table></figure></p>
+          <p>linux界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~] #</div></pre></td></tr></table></figure></p>
 <ul>
 <li>root 为当前用户</li>
 <li>localhost 为当前主机名</li>
@@ -378,50 +377,11 @@
 <li>/usr/sbin/ 系统命令（超级用户）</li>
 <li>/var 系统相关文档的内容</li>
 </ul>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><ul>
-<li>mkdir [-p]：创建目录 [递归创建]</li>
-</ul>
-<h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><ul>
-<li>-r   复制目录</li>
-<li>-p   连带文件属性复制</li>
-<li>-d   若源文件是链接文件，则复制链接属性</li>
-<li>-a   相当于 -pdr</li>
-</ul>
-<h4 id="mv-原文件或目录-目标目录"><a href="#mv-原文件或目录-目标目录" class="headerlink" title="mv [原文件或目录] [目标目录]"></a>mv [原文件或目录] [目标目录]</h4><blockquote>
-<p>剪切或改名命令</p>
-</blockquote>
-<h4 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h4><blockquote>
-<p>硬链接特征</p>
-</blockquote>
-<ol>
-<li>拥有相同的i节点和存储block块，可以看做是一个文件</li>
-<li>可以通过i节点识别</li>
-<li>不能跨分区</li>
-<li>不能针对目录使用</li>
-</ol>
-<h4 id="ln-s"><a href="#ln-s" class="headerlink" title="ln -s"></a>ln -s</h4><blockquote>
-<p>软链接特征</p>
-</blockquote>
-<ol>
-<li>类似Windows快捷方式</li>
-<li>软链接有自己的i节点和block块，但是数据块中只保存原文件的文件名和i节点号，并没有实际的文件数据</li>
-<li>lrwxrwxrwx  l代表软链接（软链接的文件权限都为rwxrwxrwx）</li>
-<li>修改任意文件，另一个都改变</li>
-<li>删除原文件，软链接不能使用</li>
-</ol>
-<h4 id="搜索文件命令"><a href="#搜索文件命令" class="headerlink" title="搜索文件命令"></a>搜索文件命令</h4><blockquote>
-<p>在后台数据库中按文件名搜索，搜索速度更快</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">locate 文件名</div></pre></td></tr></table></figure>
-<ul>
-<li>/var/lib/mlocate 为locate命令搜索的后台数据库</li>
-<li>updatedb 更新数据库命令</li>
-</ul>
-<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">find /root -inname install.log</div><div class="line"><span class="comment">#不区分大小写</span></div><div class="line"></div><div class="line">find /root -user root</div><div class="line"><span class="comment"># 按照所有者搜索</span></div><div class="line"></div><div class="line">find /root -nouser</div><div class="line"><span class="comment"># 查找没有所有者的文件</span></div><div class="line"></div><div class="line">find /var/<span class="built_in">log</span>/ -mtime +10</div><div class="line"><span class="comment"># 查找10天前修改的文件</span></div><div class="line"><span class="comment"># -10  10天内修改的文件</span></div><div class="line"><span class="comment"># 10   10天当天修改的文件</span></div><div class="line"><span class="comment"># +10  10天前修改的文件</span></div><div class="line"></div><div class="line"><span class="comment"># atime   文件访问时间</span></div><div class="line"><span class="comment"># ctime   改变文件属性</span></div><div class="line"><span class="comment"># mtime   修改文件内容</span></div></pre></td></tr></table></figure>
-<h4 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">grep [选项] 字符串 文件名</div><div class="line"><span class="comment"># 在文件当是匹配符合条件的字条串</span></div><div class="line">-i   忽略大小写</div><div class="line">-v   排除指定字符串</div></pre></td></tr></table></figure>
-<h4 id="man"><a href="#man" class="headerlink" title="man"></a>man</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">man -k </div><div class="line"><span class="comment"># 相当于 apropos 命令</span></div><div class="line"><span class="comment"># 例如： apropos passwd</span></div></pre></td></tr></table></figure>
-<h4 id="shutdown-选项-时间"><a href="#shutdown-选项-时间" class="headerlink" title="shutdown [选项] 时间"></a>shutdown [选项] 时间</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">shutdown -c</div><div class="line"><span class="comment"># 取消上一个关机命令</span></div><div class="line"></div><div class="line">shutdown -h </div><div class="line"><span class="comment"># 关机</span></div><div class="line"></div><div class="line">shutdown -r</div><div class="line"><span class="comment"># 重启</span></div></pre></td></tr></table></figure>
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/21/Linux-note/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -528,18 +488,15 @@
 
       
         
-          
-            <p>最近在部署一个CMS的项目中遇到了一些问题，有些页面可以访问，有些页面状态码则报：500 internal server error。由于在自己电脑上跑的PHP版本是5.6的，并不会报这个错。因为服务器上关闭了调试模式，查了nginx的错误日志，才发现这个报错。</p>
+          <p>最近在部署一个CMS的项目中遇到了一些问题，有些页面可以访问，有些页面状态码则报：500 internal server error。由于在自己电脑上跑的PHP版本是5.6的，并不会报这个错。因为服务器上关闭了调试模式，查了nginx的错误日志，才发现这个报错。</p>
 <h2 id="empty-仅支持变量"><a href="#empty-仅支持变量" class="headerlink" title="empty()仅支持变量"></a>empty()仅支持变量</h2><blockquote>
 <p>在PHP的官方手册上有提示：在 PHP 5.5 之前，empty() 仅支持变量；任何其他东西将会导致一个解析错误。换言之，下列代码不会生效： empty(trim($name))。 作为替代，应该使用trim($name) == false.</p>
 </blockquote>
-<h4 id="如果没没有使用变量，PHP则会报一个致使错误"><a href="#如果没没有使用变量，PHP则会报一个致使错误" class="headerlink" title="如果没没有使用变量，PHP则会报一个致使错误"></a>如果没没有使用变量，PHP则会报一个致使错误</h4><blockquote>
-<p>PHP message: PHP Fatal error:  Can’t use function return value in write context in …</p>
-</blockquote>
-<h4 id="在ThinkPHP中，判断I-‘post-’-或I-‘get-’-是否为空，先赋值再判断或如下"><a href="#在ThinkPHP中，判断I-‘post-’-或I-‘get-’-是否为空，先赋值再判断或如下" class="headerlink" title="在ThinkPHP中，判断I(‘post.’)或I(‘get.’)是否为空，先赋值再判断或如下"></a>在ThinkPHP中，判断I(‘post.’)或I(‘get.’)是否为空，先赋值再判断或如下</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">I(<span class="string">'get.param'</span>) == <span class="keyword">false</span> ? <span class="string">''</span> : <span class="string">'TODO'</span>;</div></pre></td></tr></table></figure>
-<p>以后在开发的时候还是尽量把开发环境和生产环境统一一下比较好，这样就避免了说“我机器上好好的……”，在部署时也少很多麻烦。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/26/shadowsocks/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
