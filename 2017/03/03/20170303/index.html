@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ThinkPHP," />
+  <meta name="keywords" content="mysql," />
 
 
 
@@ -96,22 +96,22 @@
 
 
 
-<meta name="description" content="最近在部署一个CMS的项目中遇到了一些问题，有些页面可以访问，有些页面状态码则报：500 internal server error。由于在自己电脑上跑的PHP版本是5.6的，并不会报这个错。因为服务器上关闭了调试模式，查了nginx的错误日志，才发现这个报错。
-empty()仅支持变量
-在PHP的官方手册上有提示：在 PHP 5.5 之前，empty() 仅支持变量；任何其他东西将会导致一个解析">
+<meta name="description" content="最近我们公司做了一个对账平台，我负责做报表这一块。我发现用 PHPExcel 导出5000条以上的数据就出现了这个问题（php.ini 的默认的内存限制是 128M）
+1Allowed memory size of 134217728 bytes exhausted (tried to allocate 54 bytes)
+最先想到的是修改 php.ini 的内存限制，但这个方法制标不制本，只能寻">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在php5.3下踩的一个坑">
-<meta property="og:url" content="http://yoursite.com/2016/10/26/shadowsocks/index.html">
+<meta property="og:title" content="PHPExcel 内存溢出解决方法与生成器">
+<meta property="og:url" content="http://yoursite.com/2017/03/03/20170303/index.html">
 <meta property="og:site_name" content="MAXRISK">
-<meta property="og:description" content="最近在部署一个CMS的项目中遇到了一些问题，有些页面可以访问，有些页面状态码则报：500 internal server error。由于在自己电脑上跑的PHP版本是5.6的，并不会报这个错。因为服务器上关闭了调试模式，查了nginx的错误日志，才发现这个报错。
-empty()仅支持变量
-在PHP的官方手册上有提示：在 PHP 5.5 之前，empty() 仅支持变量；任何其他东西将会导致一个解析">
-<meta property="og:updated_time" content="2016-12-28T07:22:51.000Z">
+<meta property="og:description" content="最近我们公司做了一个对账平台，我负责做报表这一块。我发现用 PHPExcel 导出5000条以上的数据就出现了这个问题（php.ini 的默认的内存限制是 128M）
+1Allowed memory size of 134217728 bytes exhausted (tried to allocate 54 bytes)
+最先想到的是修改 php.ini 的内存限制，但这个方法制标不制本，只能寻">
+<meta property="og:updated_time" content="2017-03-09T08:26:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在php5.3下踩的一个坑">
-<meta name="twitter:description" content="最近在部署一个CMS的项目中遇到了一些问题，有些页面可以访问，有些页面状态码则报：500 internal server error。由于在自己电脑上跑的PHP版本是5.6的，并不会报这个错。因为服务器上关闭了调试模式，查了nginx的错误日志，才发现这个报错。
-empty()仅支持变量
-在PHP的官方手册上有提示：在 PHP 5.5 之前，empty() 仅支持变量；任何其他东西将会导致一个解析">
+<meta name="twitter:title" content="PHPExcel 内存溢出解决方法与生成器">
+<meta name="twitter:description" content="最近我们公司做了一个对账平台，我负责做报表这一块。我发现用 PHPExcel 导出5000条以上的数据就出现了这个问题（php.ini 的默认的内存限制是 128M）
+1Allowed memory size of 134217728 bytes exhausted (tried to allocate 54 bytes)
+最先想到的是修改 php.ini 的内存限制，但这个方法制标不制本，只能寻">
 
 
 
@@ -132,10 +132,10 @@ empty()仅支持变量
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/26/shadowsocks/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/03/20170303/"/>
 
 
-  <title> 在php5.3下踩的一个坑 | MAXRISK </title>
+  <title> PHPExcel 内存溢出解决方法与生成器 | MAXRISK </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +295,7 @@ empty()仅支持变量
             
             
               
-                在php5.3下踩的一个坑
+                PHPExcel 内存溢出解决方法与生成器
               
             
           </h1>
@@ -307,8 +307,8 @@ empty()仅支持变量
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-26T15:57:26+08:00" content="2016-10-26">
-              2016-10-26
+            <time itemprop="dateCreated" datetime="2017-03-03T16:35:20+08:00" content="2017-03-03">
+              2017-03-03
             </time>
           </span>
 
@@ -318,8 +318,8 @@ empty()仅支持变量
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/26/shadowsocks/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/26/shadowsocks/" itemprop="commentsCount"></span>
+                <a href="/2017/03/03/20170303/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/03/20170303/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -329,7 +329,7 @@ empty()仅支持变量
 
           
           
-             <span id="/2016/10/26/shadowsocks/" class="leancloud_visitors" data-flag-title="在php5.3下踩的一个坑">
+             <span id="/2017/03/03/20170303/" class="leancloud_visitors" data-flag-title="PHPExcel 内存溢出解决方法与生成器">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -351,16 +351,105 @@ empty()仅支持变量
       
 
       
-        <p>最近在部署一个CMS的项目中遇到了一些问题，有些页面可以访问，有些页面状态码则报：500 internal server error。由于在自己电脑上跑的PHP版本是5.6的，并不会报这个错。因为服务器上关闭了调试模式，查了nginx的错误日志，才发现这个报错。</p>
-<h2 id="empty-仅支持变量"><a href="#empty-仅支持变量" class="headerlink" title="empty()仅支持变量"></a>empty()仅支持变量</h2><blockquote>
-<p>在PHP的官方手册上有提示：在 PHP 5.5 之前，empty() 仅支持变量；任何其他东西将会导致一个解析错误。换言之，下列代码不会生效： empty(trim($name))。 作为替代，应该使用trim($name) == false.</p>
-</blockquote>
+        <p>最近我们公司做了一个对账平台，我负责做报表这一块。我发现用 PHPExcel 导出5000条以上的数据就出现了这个问题（php.ini 的默认的内存限制是 128M）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Allowed memory size of <span class="number">134217728</span> bytes exhausted (tried to allocate <span class="number">54</span> bytes)</div></pre></td></tr></table></figure>
+<p>最先想到的是修改 php.ini 的内存限制，但这个方法制标不制本，只能寻找别的解决方法。</p>
+<h3 id="下面简单阐述一下我的解决过程"><a href="#下面简单阐述一下我的解决过程" class="headerlink" title="下面简单阐述一下我的解决过程"></a>下面简单阐述一下我的解决过程</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取数据</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getDetail</span><span class="params">($map)</span> </span>&#123;</div><div class="line">    <span class="keyword">echo</span> memory_get_usage(), <span class="string">'&lt;br&gt;'</span>;</div><div class="line">    $data = M(<span class="string">'table'</span>)-&gt;field(<span class="string">'field1,field2,field3,...'</span>)-&gt;where($map)-&gt;order(<span class="string">'order_time DESC'</span>)-&gt;limit(<span class="number">5000</span>)-&gt;select();</div><div class="line">    <span class="keyword">return</span> $data;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h4 id="如果没没有使用变量，PHP则会报一个致使错误"><a href="#如果没没有使用变量，PHP则会报一个致使错误" class="headerlink" title="如果没没有使用变量，PHP则会报一个致使错误"></a>如果没没有使用变量，PHP则会报一个致使错误</h4><blockquote>
-<p>PHP message: PHP Fatal error:  Can’t use function return value in write context in …</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">$this</span>-&gt;objPHPExcel = <span class="keyword">new</span> \PHPExcel();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 遍历 Excel 数据</span></div><div class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">setSheetData</span><span class="params">($data)</span> </span>&#123;</div><div class="line">    <span class="keyword">echo</span> memory_get_usage(), <span class="string">'&lt;br&gt;'</span>;</div><div class="line">    $activeSheet = <span class="keyword">$this</span>-&gt;objPHPExcel-&gt;getActiveSheet();</div><div class="line"></div><div class="line">    <span class="comment">//导入数据</span></div><div class="line">    <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $key =&gt; $value) &#123;</div><div class="line">        $index = $key + <span class="number">2</span>;</div><div class="line">        $activeSheet-&gt;setCellValueExplicit(<span class="string">'A'</span>.$index, $value[<span class="string">'field1'</span>], \PHPExcel_Cell_DataType::TYPE_STRING);</div><div class="line">        $activeSheet-&gt;setCellValueExplicit(<span class="string">'B'</span>.$index, $value[<span class="string">'field2'</span>], \PHPExcel_Cell_DataType::TYPE_STRING);</div><div class="line">        $activeSheet-&gt;setCellValue(<span class="string">'C'</span>.$index, $value[<span class="string">'field3'</span>]);</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'foreach: '</span> . memory_get_usage(), <span class="string">'&lt;br&gt;'</span>;</div><div class="line">    <span class="keyword">exit</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>以下测试数据都是基于导出 5000 条数据产生的</p>
 </blockquote>
-<h4 id="在ThinkPHP中，判断I-‘post-’-或I-‘get-’-是否为空，先赋值再判断或如下"><a href="#在ThinkPHP中，判断I-‘post-’-或I-‘get-’-是否为空，先赋值再判断或如下" class="headerlink" title="在ThinkPHP中，判断I(‘post.’)或I(‘get.’)是否为空，先赋值再判断或如下"></a>在ThinkPHP中，判断I(‘post.’)或I(‘get.’)是否为空，先赋值再判断或如下</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">I(<span class="string">'get.param'</span>) == <span class="keyword">false</span> ? <span class="string">''</span> : <span class="string">'TODO'</span>;</div></pre></td></tr></table></figure>
-<p>以后在开发的时候还是尽量把开发环境和生产环境统一一下比较好，这样就避免了说“我机器上好好的……”，在部署时也少很多麻烦。</p>
+<table>
+<thead>
+<tr>
+<th>过程</th>
+<th>查询数据前</th>
+<th>查询数据后</th>
+<th>遍历数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优化前</td>
+<td>6M</td>
+<td>26M</td>
+<td>70M</td>
+</tr>
+</tbody>
+</table>
+<p>通过 php 函数 memory_get_usage 可以获取到如上数据。可以发现，内存占用大的情况出现在查询后和遍历 Excel 数据的时候。</p>
+<h3 id="PHPExcel-大数据量情况下内存溢出解决"><a href="#PHPExcel-大数据量情况下内存溢出解决" class="headerlink" title="PHPExcel 大数据量情况下内存溢出解决"></a>PHPExcel 大数据量情况下内存溢出解决</h3><p>PHPExcel 可以通过缓存来解决这种情况，大家可以参考这篇 <a href="http://www.cnblogs.com/myx/archive/2013/05/20/phpExcel-setCache.html" target="_blank" rel="external">文章</a> 来解决遍历数据那一步</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</div><div class="line">    $cacheMethod = \PHPExcel_CachedObjectStorageFactory::cache_in_memory_gzip;</div><div class="line">    $cacheSettings = <span class="keyword">array</span>(<span class="string">'cache_in_memory_gzip'</span>=&gt;<span class="string">'30MB'</span>);</div><div class="line">    \PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);</div><div class="line">    <span class="keyword">$this</span>-&gt;objPHPExcel = <span class="keyword">new</span> \PHPExcel();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>过程</th>
+<th>查询数据前</th>
+<th>查询数据后</th>
+<th>遍历数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优化后</td>
+<td>6M</td>
+<td>26M</td>
+<td>51M</td>
+</tr>
+</tbody>
+</table>
+<h3 id="注销遍历完的变量"><a href="#注销遍历完的变量" class="headerlink" title="注销遍历完的变量"></a>注销遍历完的变量</h3><p>在上面的代码中，$data 是存了 5000 条数据的变量，占用了较大的内存。我们遍历完数据后这个变量也就没用了，所以我们可以用 unset() 来的注销这个变量。<br>但是重点在下文的生成器，就算不用 unset() 也没关系了。</p>
+<table>
+<thead>
+<tr>
+<th>过程</th>
+<th>查询数据前</th>
+<th>查询数据后</th>
+<th>遍历数据</th>
+<th>注销变量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优化后</td>
+<td>6M</td>
+<td>26M</td>
+<td>51M</td>
+<td>35M </td>
+</tr>
+</tbody>
+</table>
+<h3 id="应用-PHP-的生成器"><a href="#应用-PHP-的生成器" class="headerlink" title="应用 PHP 的生成器"></a>应用 PHP 的生成器</h3><blockquote>
+<p>官方注释：生成器提供了一种更容易的方法来实现简单的对象迭代，相比较定义类实现 Iterator 接口的方式，性能开销和复杂性大大降低。</p>
+</blockquote>
+<p>我最近在学习 python，看到了生成器这部分，想起了 PHP 也有生成器。我们不可能把成千上万条数据存到变量中，这样内存一下子就达到上限了。但我们可以利用生成器，代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getDetail</span><span class="params">($map)</span> </span>&#123;</div><div class="line">    $sql = <span class="string">"SELECT `field1`,`field2`,`field3` ... FROM `table` LIMIT 5000"</span>;</div><div class="line">    $conn = mysqli_connect(<span class="string">'127.0.0.1'</span>, <span class="string">'root'</span>, <span class="string">''</span>, <span class="string">'database'</span>);</div><div class="line">    $res = mysqli_query($conn, $sql);</div><div class="line">    <span class="keyword">while</span> ($row = mysqli_fetch_assoc($res)) &#123;</div><div class="line">        <span class="keyword">yield</span> $row;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>过程</th>
+<th>查询数据前</th>
+<th>查询数据后</th>
+<th>遍历数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最初</td>
+<td>6M</td>
+<td>26M</td>
+<td>70M</td>
+</tr>
+<tr>
+<td>最终</td>
+<td>6M</td>
+<td>6M</td>
+<td>31M</td>
+</tr>
+</tbody>
+</table>
+<p>经过测试，查询数据前后的内存占用基本不变。经过上面几步的优化，遍历数据那一步现在的内存占用也只有 31M 了。就算是 php.ini 默认的 128M 的内存也足够用了。关于生成器的详细介绍，大家可以去看 PHP 官方手册。<br>我发现网上在解决这个问题没有用上生成器，所以便有了这篇文章。解决了这类问题还是满有成就感的，嘿嘿!</p>
 
       
     </div>
@@ -383,7 +472,7 @@ empty()仅支持变量
       
         <div class="post-tags">
           
-            <a href="/tags/ThinkPHP/" rel="tag">#ThinkPHP</a>
+            <a href="/tags/mysql/" rel="tag">#mysql</a>
           
         </div>
       
@@ -392,13 +481,13 @@ empty()仅支持变量
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/01/19/mac-crontab/" rel="next" title="Mac 系统中使用 crontab 的问题">
+                <i class="fa fa-chevron-left"></i> Mac 系统中使用 crontab 的问题
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/21/Linux-note/" rel="prev" title="Linux笔记">
-                Linux笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -424,8 +513,8 @@ empty()仅支持变量
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/26/shadowsocks/"
-           data-title="在php5.3下踩的一个坑" data-url="http://yoursite.com/2016/10/26/shadowsocks/">
+      <div class="ds-thread" data-thread-key="2017/03/03/20170303/"
+           data-title="PHPExcel 内存溢出解决方法与生成器" data-url="http://yoursite.com/2017/03/03/20170303/">
       </div>
     
   </div>
@@ -520,7 +609,7 @@ empty()仅支持变量
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#empty-仅支持变量"><span class="nav-number">1.</span> <span class="nav-text">empty()仅支持变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果没没有使用变量，PHP则会报一个致使错误"><span class="nav-number">1.0.1.</span> <span class="nav-text">如果没没有使用变量，PHP则会报一个致使错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在ThinkPHP中，判断I-‘post-’-或I-‘get-’-是否为空，先赋值再判断或如下"><span class="nav-number">1.0.2.</span> <span class="nav-text">在ThinkPHP中，判断I(‘post.’)或I(‘get.’)是否为空，先赋值再判断或如下</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#下面简单阐述一下我的解决过程"><span class="nav-number">1.</span> <span class="nav-text">下面简单阐述一下我的解决过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHPExcel-大数据量情况下内存溢出解决"><span class="nav-number">2.</span> <span class="nav-text">PHPExcel 大数据量情况下内存溢出解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注销遍历完的变量"><span class="nav-number">3.</span> <span class="nav-text">注销遍历完的变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用-PHP-的生成器"><span class="nav-number">4.</span> <span class="nav-text">应用 PHP 的生成器</span></a></li></ol></div>
             
           </div>
         </section>
