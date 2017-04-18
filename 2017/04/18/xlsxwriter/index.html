@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="php," />
 
 
 
@@ -96,15 +96,19 @@
 
 
 
-<meta name="description" content="stay hungry, stay foolish">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MAXRISK">
-<meta property="og:url" content="http://yoursite.com/archives/2016/12/index.html">
+<meta name="description" content="在我上一篇博客中，解决了 PHPExcel 内存溢出的问题。但是，查询一万条数据时，PHP 执行超时了。经过谷歌发现，这是 PHPExcel 本身效率的问题，随后发现有个叫 PHP_XLSXWriter 的插件可以代替 PHPExcel。
+无法打开文件刚开始用的时候，用官方给的示例代码，导出的文件为0字节，且文件无法打开，但是用命令行运行示例代码却可以正常导出。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP_XLSXWriter 代替 PHPExcel">
+<meta property="og:url" content="http://yoursite.com/2017/04/18/xlsxwriter/index.html">
 <meta property="og:site_name" content="MAXRISK">
-<meta property="og:description" content="stay hungry, stay foolish">
+<meta property="og:description" content="在我上一篇博客中，解决了 PHPExcel 内存溢出的问题。但是，查询一万条数据时，PHP 执行超时了。经过谷歌发现，这是 PHPExcel 本身效率的问题，随后发现有个叫 PHP_XLSXWriter 的插件可以代替 PHPExcel。
+无法打开文件刚开始用的时候，用官方给的示例代码，导出的文件为0字节，且文件无法打开，但是用命令行运行示例代码却可以正常导出。">
+<meta property="og:updated_time" content="2017-04-18T06:48:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MAXRISK">
-<meta name="twitter:description" content="stay hungry, stay foolish">
+<meta name="twitter:title" content="PHP_XLSXWriter 代替 PHPExcel">
+<meta name="twitter:description" content="在我上一篇博客中，解决了 PHPExcel 内存溢出的问题。但是，查询一万条数据时，PHP 执行超时了。经过谷歌发现，这是 PHPExcel 本身效率的问题，随后发现有个叫 PHP_XLSXWriter 的插件可以代替 PHPExcel。
+无法打开文件刚开始用的时候，用官方给的示例代码，导出的文件为0字节，且文件无法打开，但是用命令行运行示例代码却可以正常导出。">
 
 
 
@@ -125,10 +129,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2016/12/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/18/xlsxwriter/"/>
 
 
-  <title> 归档 | MAXRISK </title>
+  <title> PHP_XLSXWriter 代替 PHPExcel | MAXRISK </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -159,7 +163,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -267,66 +271,141 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 5 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP_XLSXWriter 代替 PHPExcel
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-18T13:57:35+08:00" content="2017-04-18">
+              2017-04-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/18/xlsxwriter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/18/xlsxwriter/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/18/xlsxwriter/" class="leancloud_visitors" data-flag-title="PHP_XLSXWriter 代替 PHPExcel">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>在我上一篇博客中，解决了 PHPExcel 内存溢出的问题。但是，查询一万条数据时，PHP 执行超时了。经过谷歌发现，这是 PHPExcel 本身效率的问题，随后发现有个叫 <a href="https://github.com/mk-j/PHP_XLSXWriter" target="_blank" rel="external">PHP_XLSXWriter</a> 的插件可以代替 PHPExcel。</p>
+<h3 id="无法打开文件"><a href="#无法打开文件" class="headerlink" title="无法打开文件"></a>无法打开文件</h3><p>刚开始用的时候，用官方给的示例代码，导出的文件为0字节，且文件无法打开，但是用命令行运行示例代码却可以正常导出。<br><a id="more"></a><br>我开始跟踪代码，发现有个地方用到了系统的缓存目录，PHP 程序自然不能在系统目录在进行读写。通过 XLSXWriter::setTempDir() 这个方法设置缓存目录到当前的工程中，问题就解决了。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>虽然 PHP_XLSXWriter 的功能没有 PHPExcel 强大，但是已经足够用了，最重要的是效率大大的提高了。一万条数据的导出 PHPExcel 要50秒以上，而 PHP_XLSXWriter 不到10秒就可以搞定了。这个提升可以说是质的飞越，再也不用超时的问题，也不用当心内存溢出。</p>
+<p>PHP_XLSXWriter 只有一个文件，里面有两个类，很轻量，官方的示例代码也足够详细，容易上手，嫌 PHPExcel 慢的读者可以试试这个插件。</p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
         </div>
       
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/03/20170303/" rel="next" title="PHPExcel 内存溢出解决方法与生成器">
+                <i class="fa fa-chevron-left"></i> PHPExcel 内存溢出解决方法与生成器
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/21/Linux-note/" itemprop="url">
-              
-                <span itemprop="name">Linux笔记</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-21T21:10:05+08:00"
-              content="2016-12-21" >
-          12-21
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -334,6 +413,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/18/xlsxwriter/"
+           data-title="PHP_XLSXWriter 代替 PHPExcel" data-url="http://yoursite.com/2017/04/18/xlsxwriter/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -353,8 +440,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/maxrisk.jpg"
@@ -408,6 +504,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#无法打开文件"><span class="nav-number">1.</span> <span class="nav-text">无法打开文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -511,11 +618,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
 
 
   
